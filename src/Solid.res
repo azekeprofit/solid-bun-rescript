@@ -32,7 +32,10 @@ external promise: promise<element> => element = "%identity"
 /* These are needed for Fragment (<> </>) support */
 type fragmentProps = {children?: element}
 
-@module("solid-js/web") external jsxFragment: component<fragmentProps> = "Fragment"
+let jsxFragment: component<fragmentProps> = (props:fragmentProps)=>switch props.children {
+| Some(childs) => childs
+| None => null
+}
 
 /* The Elements module is the equivalent to the ReactDOM module in Preact. This holds things relevant to _lowercase_ JSX elements. */
 module Elements = {

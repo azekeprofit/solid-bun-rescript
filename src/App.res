@@ -1,4 +1,4 @@
-@react.component
+@jsx.component
 let make = () => {
   let (a, set) = Solid.createSignal(0)
   <div>
