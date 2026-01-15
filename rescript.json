@@ -1,0 +1,22 @@
+{
+  "name": "solid-rescript",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "esmodule",
+      "in-source": true
+    }
+  ],
+  "suffix": ".jsx",
+  "jsx": {
+    "version": 4,
+    "module": "Solid",
+    "preserve": true
+  },
+  "compiler-flags": []
+}
