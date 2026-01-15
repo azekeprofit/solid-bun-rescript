@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "res": "bun run rescript build",
+    "res:format": "bun run rescript format",
+    "res:clean": "bun run rescript clean",
     "dev": "bun run cfg/dev.js",
     "build": "bun run cfg/prod.js"
   },
