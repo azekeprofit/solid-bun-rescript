@@ -2,7 +2,7 @@ import { SolidPlugin } from "@dschz/bun-plugin-solid";
 import tailwind from "bun-plugin-tailwind";
 import { build, $ } from "bun";
 
-export async function bundle(prod: boolean) {
+export async function bundle(prod) {
   const { exitCode } = await $` bun res`.nothrow();
   if (exitCode != 0) return;
   build({

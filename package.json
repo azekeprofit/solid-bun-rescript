@@ -5,9 +5,8 @@
   "private": true,
   "scripts": {
     "res": "bun run rescript build",
-    "res:dev": "bun run rescript watch",
-    "dev": "bun run cfg/dev.ts",
-    "build": "bun run cfg/prod.ts"
+    "dev": "bun run cfg/dev.js",
+    "build": "bun run cfg/prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.28.6",
