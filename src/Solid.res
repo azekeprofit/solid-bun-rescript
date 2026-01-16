@@ -68,4 +68,4 @@ module Elements = {
 external createSignal: 'a => (unit => 'a, ('a => 'a) => unit) = "createSignal"
 
 @module("solid-js/web")
-external render: (unit => element, Dom.element) => unit = "render"
+external render: (unit => element, WebAPI.DOMAPI.element) => unit = "render"

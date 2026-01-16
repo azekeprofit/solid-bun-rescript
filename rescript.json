@@ -18,5 +18,8 @@
     "module": "Solid",
     "preserve": true
   },
-  "compiler-flags": []
+  "dependencies": [
+    "@rescript/webapi"
+  ],
+  "compiler-flags": ["-open WebAPI.Global"]
 }

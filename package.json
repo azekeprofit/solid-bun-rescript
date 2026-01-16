@@ -13,17 +13,18 @@
   "devDependencies": {
     "@babel/core": "^7.28.6",
     "@babel/preset-typescript": "^7.28.5",
+    "@rescript/webapi": "^0.1.0-experimental-d4d36b8",
     "@types/bun": "latest",
     "babel-preset-solid": "^1.9.10",
     "bun-plugin-tailwind": "^0.0.15",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "@dschz/bun-plugin-solid": "^1.0.4",
+    "rescript": "^12.1.0"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@dschz/bun-plugin-solid": "^1.0.4",
-    "rescript": "^12.1.0",
     "solid-js": "^1.9.10"
   }
 }
