@@ -1,11 +1,22 @@
 @jsx.component
 let make = () => {
   let (a, set) = Solid.createSignal(0)
+
+  Solid.createEffect(() => Console.log("a changed:" + a()->Int.toString))
+
+  let (show, setShow) = Solid.createSignal(true)
+
   <div>
+  // Solid's Show tag has 'when' attribute, but 'when' is a reserved word in Rescript and can't be used as a prop name
+    <Solid.show when_={show()} fallback={<i>{`Hidden!`->Solid.string}</i>}>
+      <p>
+        {"a="->Solid.string}
+        <Indicator value={a()} />
+        <button onClick={_ => set(c => c + 1)}> {Solid.string("+1")} </button>
+      </p>
+    </Solid.show>
     <p>
-      {Solid.string(`a=`)}
-      <Indicator value={a()} />
+      <button onClick={_ => setShow(s => !s)}> {(show() ? "hide" : "show")->Solid.string} </button>
     </p>
-    <button onClick={_ => set(c => c + 1)}> {Solid.string("+1")} </button>
   </div>
 }

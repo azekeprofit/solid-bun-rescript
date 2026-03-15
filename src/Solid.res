@@ -67,5 +67,19 @@ module Elements = {
 @module("solid-js")
 external createSignal: 'a => (unit => 'a, ('a => 'a) => unit) = "createSignal"
 
+@module("solid-js")
+external createEffect: (unit => unit) => unit = "createEffect"
+
+@module("solid-js")
+external onMount: (unit => unit) => unit = "onMount"
+
+@module("solid-js")
+external onCleanup: (unit => unit) => unit = "onCleanup"
+
 @module("solid-js/web")
 external render: (unit => element, WebAPI.DOMAPI.element) => unit = "render"
+
+type props={ @as("when")when_: bool, fallback?:element, children: element}
+@module("solid-js")
+external showInternal: (props) => element = "Show"
+let show=showInternal
