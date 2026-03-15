@@ -93,12 +93,12 @@ external createMemo: ('val => 'val) => unit => 'val = "createMemo"
 type equalityFn<'val> = ('val, 'val) => bool
 @val external emptyEqualityFn: equalityFn<'val> = "false"
 @val external emptyName: string = "undefined"
-type createMemoOptionsWithNameAndEqualityFn<'val> = {equals: equalityFn<'val>, name: string}
+type optionsWithNameAndEqualityFn<'val> = {equals: equalityFn<'val>, name: string}
 @module("solid-js")
 external createMemoWithOptions: (
   'val => 'val,
   'val,
-  createMemoOptionsWithNameAndEqualityFn<'val>,
+  optionsWithNameAndEqualityFn<'val>,
 ) => unit => 'val = "createMemo"
 let createMemoWithOptions = (
   fn: 'val => 'val,
@@ -106,3 +106,14 @@ let createMemoWithOptions = (
   ~equals: equalityFn<'val>=emptyEqualityFn,
   ~name: string=emptyName,
 ) => createMemoWithOptions(fn, init, {equals, name})
+
+@module("solid-js")
+external createSignalWithOptions: (
+  'val,
+  optionsWithNameAndEqualityFn<'val>,
+) => (unit => 'val, ('val => 'val) => unit) = "createSignal"
+let createSignalWithOptions = (
+  init: 'val,
+  ~equals: equalityFn<'val>=emptyEqualityFn,
+  ~name: string=emptyName,
+) => createSignalWithOptions(init, {equals, name})

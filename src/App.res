@@ -4,7 +4,7 @@ let make = () => {
 
   Solid.createEffect(() => Console.log("a changed:" + a()->Int.toString))
 
-  let (show, setShow) = Solid.createSignal(true)
+  let (show, setShow) = Solid.createSignalWithOptions(true, ~name="strr")
 
   <div>
     // Solid's Show tag has 'when' attribute, but 'when' is a reserved keyword in Rescript and can't be used as a prop name
