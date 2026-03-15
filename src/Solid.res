@@ -44,7 +44,10 @@ module Elements = {
   A base that the React JSX transform uses is provided via JsxDOM.domProps,
   but you can make this anything. The editor tooling will support
   autocompletion etc for your specific type. */
-  type props = JsxDOM.domProps
+  type props = {
+    ...JsxDOM.domProps,
+    classList?: dict<bool>,
+  }
 
   @module("solid-js/web")
   external jsx: (string, props) => Jsx.element = "jsx"
@@ -79,7 +82,27 @@ external onCleanup: (unit => unit) => unit = "onCleanup"
 @module("solid-js/web")
 external render: (unit => element, WebAPI.DOMAPI.element) => unit = "render"
 
-type props={ @as("when")when_: bool, fallback?:element, children: element}
+type showProps = {@as("when") when_: bool, fallback?: element, children?: element}
 @module("solid-js")
-external showInternal: (props) => element = "Show"
-let show=showInternal
+external show: showProps => element = "Show"
+let show = show
+
+@module("solid-js")
+external createMemo: ('val => 'val) => unit => 'val = "createMemo"
+
+type equalityFn<'val> = ('val, 'val) => bool
+@val external emptyEqualityFn: equalityFn<'val> = "false"
+@val external emptyName: string = "undefined"
+type createMemoOptionsWithNameAndEqualityFn<'val> = {equals: equalityFn<'val>, name: string}
+@module("solid-js")
+external createMemoWithOptions: (
+  'val => 'val,
+  'val,
+  createMemoOptionsWithNameAndEqualityFn<'val>,
+) => unit => 'val = "createMemo"
+let createMemoWithOptions = (
+  fn: 'val => 'val,
+  init: 'val,
+  ~equals: equalityFn<'val>=emptyEqualityFn,
+  ~name: string=emptyName,
+) => createMemoWithOptions(fn, init, {equals, name})

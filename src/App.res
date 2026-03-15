@@ -7,12 +7,12 @@ let make = () => {
   let (show, setShow) = Solid.createSignal(true)
 
   <div>
-  // Solid's Show tag has 'when' attribute, but 'when' is a reserved word in Rescript and can't be used as a prop name
-    <Solid.show when_={show()} fallback={<i>{`Hidden!`->Solid.string}</i>}>
+    // Solid's Show tag has 'when' attribute, but 'when' is a reserved keyword in Rescript and can't be used as a prop name
+    <Solid.show when_={show()} fallback={<i> {`Hidden!`->Solid.string} </i>}>
       <p>
         {"a="->Solid.string}
         <Indicator value={a()} />
-        <button onClick={_ => set(c => c + 1)}> {Solid.string("+1")} </button>
+        <button onClick={_ => set(c => c + 1)}> {`+1`->Solid.string} </button>
       </p>
     </Solid.show>
     <p>
