@@ -46,6 +46,7 @@ module Elements = {
   autocompletion etc for your specific type. */
   type props = {
     ...JsxDOM.domProps,
+    class?: string,
     classList?: dict<bool>,
   }
 
@@ -70,6 +71,12 @@ module Elements = {
 @module("solid-js")
 external createSignal: 'a => (unit => 'a, ('a => 'a) => unit) = "createSignal"
 
+@module("solid-js/store")
+external createStore: 'a => ('a, ('a => 'a) => unit) = "createStore"
+
+@module("solid-js/store")
+external produce: ('a => unit) => ('a => 'a) = "produce"
+
 @module("solid-js")
 external createEffect: (unit => unit) => unit = "createEffect"
 
@@ -87,12 +94,20 @@ type showProps = {@as("when") when_: bool, fallback?: element, children?: elemen
 external show: showProps => element = "Show"
 let show = show
 
-type forProps<'val> = {each: array<'val>, fallback?: element, children: ('val, unit=>int) => element}
+type forProps<'val> = {
+  each: array<'val>,
+  fallback?: element,
+  children: ('val, unit => int) => element,
+}
 @module("solid-js")
 external for_: forProps<'val> => element = "For"
 let for_ = for_
 
-type indexProps<'val> = {each: array<'val>, fallback?: element, children: (unit=>'val, int) => element}
+type indexProps<'val> = {
+  each: array<'val>,
+  fallback?: element,
+  children: (unit => 'val, int) => element,
+}
 @module("solid-js")
 external index: indexProps<'val> => element = "Index"
 let index = index
