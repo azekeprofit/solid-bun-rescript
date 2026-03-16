@@ -87,6 +87,16 @@ type showProps = {@as("when") when_: bool, fallback?: element, children?: elemen
 external show: showProps => element = "Show"
 let show = show
 
+type forProps<'val> = {each: array<'val>, fallback?: element, children: ('val, unit=>int) => element}
+@module("solid-js")
+external for_: forProps<'val> => element = "For"
+let for_ = for_
+
+type indexProps<'val> = {each: array<'val>, fallback?: element, children: (unit=>'val, int) => element}
+@module("solid-js")
+external index: indexProps<'val> => element = "Index"
+let index = index
+
 @module("solid-js")
 external createMemo: ('val => 'val) => unit => 'val = "createMemo"
 

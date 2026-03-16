@@ -15,7 +15,7 @@ let make = (props: props) => {
   <>
     {` `->Solid.string}
     // classList are Rescript dict types
-    <span classList={dict{"text-red-500": oddMemoized(), "text-green-500": !oddMemoized()}}>
+    <span classList=dict{"text-red-500": oddMemoized(), "text-green-500": !oddMemoized()}>
       {props.value->Solid.int}
     </span>
   </>
