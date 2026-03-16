@@ -16,7 +16,7 @@ js bundle and corresponding html are in `dist` library
 
 Run 
 ```bash
-bun run prod
+bun run build
 ```
 
 to generate minified version of the bundle
