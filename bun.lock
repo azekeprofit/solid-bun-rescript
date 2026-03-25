@@ -5,7 +5,9 @@
     "": {
       "name": "solid-rescript",
       "dependencies": {
+        "@formisch/solid": "^0.9.3",
         "solid-js": "^1.9.10",
+        "valibot": "^1.3.1",
       },
       "devDependencies": {
         "@babel/core": "^7.28.6",
@@ -77,6 +79,8 @@
     "@babel/types": ["@babel/types@7.28.6", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.28.5" } }, "sha512-0ZrskXVEHSWIqZM/sQZ4EV3jZJXRkio/WCxaqKZP1g//CEWEPSfeZFcms4XeKBCHU0ZKnIkdJeU/kF+eRp5lBg=="],
 
     "@dschz/bun-plugin-solid": ["@dschz/bun-plugin-solid@1.0.4", "", { "peerDependencies": { "@babel/core": ">=7.24.0", "@babel/preset-typescript": ">=7.24.0", "babel-preset-solid": ">=1.8.9" } }, "sha512-rih0ULu+ssc5UoRhhNzAX9GRcKtmEJO3xwxpWeCkH4TPLAo60tp+W0yoRaKbmo8TKHQnktl8vEQiqKtXJV9QuQ=="],
+
+    "@formisch/solid": ["@formisch/solid@0.9.3", "", { "peerDependencies": { "solid-js": "^1.6.0", "typescript": ">=5", "valibot": "^1.0.0" }, "optionalPeers": ["typescript"] }, "sha512-cCT9VeWKdgConfeYTq2eayoMGpPgxiBClxat1UXqCn5PkHOWrHywx6V9OOAaeIKvCo3p/QEvHKReNMNTOcyYoQ=="],
 
     "@jridgewell/gen-mapping": ["@jridgewell/gen-mapping@0.3.13", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.0", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA=="],
 
@@ -169,6 +173,8 @@
     "undici-types": ["undici-types@7.16.0", "", {}, "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="],
 
     "update-browserslist-db": ["update-browserslist-db@1.2.3", "", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
+
+    "valibot": ["valibot@1.3.1", "", { "peerDependencies": { "typescript": ">=5" }, "optionalPeers": ["typescript"] }, "sha512-sfdRir/QFM0JaF22hqTroPc5xy4DimuGQVKFrzF1YfGwaS1nJot3Y8VqMdLO2Lg27fMzat2yD3pY5PbAYO39Gg=="],
 
     "yallist": ["yallist@3.1.1", "", {}, "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="],
 

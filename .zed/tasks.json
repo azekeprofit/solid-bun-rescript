@@ -5,7 +5,7 @@
   {
     "label": "prod",
     "command": "bun run cfg/prod.js",
-    "use_new_terminal": false,
+    "use_new_terminal": true,
     "allow_concurrent_runs": false,
     "reveal": "no_focus",
     "reveal_target": "dock",

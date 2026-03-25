@@ -19,7 +19,9 @@ external jsxs: (component<'props>, 'props) => element = "jsxs"
 external jsxsKeyed: (component<'props>, 'props, ~key: string=?, @ignore unit) => element = "jsxs"
 
 /* These identity functions and static values below are optional, but lets
+
 you move things easily to the `element` type. The only required thing to
+
 define though is `array`, which the JSX transform will output. */
 external array: array<element> => element = "%identity"
 @val external null: element = "null"
@@ -41,8 +43,11 @@ let jsxFragment: component<fragmentProps> = (props: fragmentProps) =>
 /* The Elements module is the equivalent to the ReactDOM module in Preact. This holds things relevant to _lowercase_ JSX elements. */
 module Elements = {
   /* Here you can control what props lowercase JSX elements should have.
+
   A base that the React JSX transform uses is provided via JsxDOM.domProps,
+
   but you can make this anything. The editor tooling will support
+
   autocompletion etc for your specific type. */
   type props = {
     ...JsxDOM.domProps,
@@ -75,7 +80,7 @@ external createSignal: 'a => (unit => 'a, ('a => 'a) => unit) = "createSignal"
 external createStore: 'a => ('a, ('a => 'a) => unit) = "createStore"
 
 @module("solid-js/store")
-external produce: ('a => unit) => ('a => 'a) = "produce"
+external produce: ('a => unit) => 'a => 'a = "produce"
 
 @module("solid-js")
 external createEffect: (unit => unit) => unit = "createEffect"

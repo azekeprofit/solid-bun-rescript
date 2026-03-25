@@ -11,7 +11,9 @@ let make = () => {
         {(ind, index) => {
           <p>
             <Indicator value={ind.counter} />
-            <button onClick={_ => Store.setIndicator(index(), ind.counter + 1)}> {`+1`->Solid.string} </button>
+            <button onClick={_ => Store.setIndicator(index(), ind.counter + 1)}>
+              {`+1`->Solid.string}
+            </button>
           </p>
         }}
       </Solid.for_>
@@ -23,5 +25,7 @@ let make = () => {
     <p>
       <button onClick={_ => setShow(s => !s)}> {(show() ? "hide" : "show")->Solid.string} </button>
     </p>
+
+    <Form />
   </div>
 }
