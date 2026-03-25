@@ -1,10 +1,10 @@
 type props = {value: int}
 // Solidjs doesn't allow props destructuring:
 // https://docs.solidjs.com/concepts/components/props#destructuring-props
-let make = (props: props) => {
-  Solid.onMount(() => Console.log("mounted"))
+let make = props => {
+  Solid.onMount(_ => Console.log("mounted"))
 
-  Solid.onCleanup(() => Console.log("cleanup"))
+  Solid.onCleanup(_ => Console.log("cleanup"))
 
   // derived signal from a prop
   let odd = _ => props.value % 2 == 0
