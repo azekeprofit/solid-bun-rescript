@@ -15,7 +15,7 @@ external form: formProps<'form> => Solid.element = "Form"
 let form = form
 
 type fieldArguments<'field> = {
-  input: 'field,
+  input: Nullable.t<'field>,
   errors: nullable<array<string>>,
   props: Solid.Elements.props,
 }
@@ -26,5 +26,9 @@ type fieldProps<'form, 'field> = {
   children: fieldArguments<'field> => Solid.element,
 }
 @module("@formisch/solid")
-external field: fieldProps<'form, 'field> => Solid.element = "Field"
-let field = field
+external string: fieldProps<'form, string> => Solid.element = "Field"
+let string=string
+
+@module("@formisch/solid")
+external int: fieldProps<'form, int> => Solid.element = "Field"
+let int=int

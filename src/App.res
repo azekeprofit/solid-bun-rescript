@@ -27,5 +27,6 @@ let make = () => {
     </p>
 
     <Form />
+    <Clock color="#1293D8" size={400.0} handColor="white" />
   </div>
 }

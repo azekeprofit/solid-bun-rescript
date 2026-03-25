@@ -1,23 +1,25 @@
 type form = {
   a: string,
   b: int,
-  c: bool
+  c: bool,
 }
 
+type formProps = | @as("a") FormPropsA | @as("b") FormPropsB | @as("c") FormPropsC
 
-type formProps= @as("a") FormPropsA | @as("b") FormPropsB | @as("c") FormPropsC
+type rec allProps<_> = FormVariant(formProps): allProps<formProps>
 
-type rec allProps<_>=
-| FormVariant(formProps): allProps<formProps>
-
-let schema = Valibot.object( dict{
-  "a": Valibot.pipe(Valibot.string(),[Valibot.nonEmpty("not empty"),Valibot.maxLength(5,"too long")]),
-  "b": Valibot.number("b is wrong!")},
+let schema = Valibot.object(
+  dict{
+    "a": Valibot.pipe(
+      Valibot.string(),
+      [Valibot.nonEmpty("not empty"), Valibot.maxLength(5, "too long")],
+    ),
+    "b": Valibot.number("b is wrong!"),
+  },
   "",
 )
 
-let errorsList=errors=>Nullable.getOr(errors,[])->Array.join(", ")->Solid.string
-
+let errorsList = errors => Nullable.getOr(errors, [])->Array.join(", ")->Solid.string
 
 @jsx.component
 let make = () => {
@@ -25,27 +27,37 @@ let make = () => {
 
   <p>
     <Formisch.form of_={form} onSubmit={t => Console.dir(t)}>
-      <Formisch.field of_={form} path=["a"]>
-        {({errors,input,props}) =>
+      <Formisch.string of_={form} path=["a"]>
+        {({errors, input, props}) =>
           <div>
-            <label>{"a="->Solid.string}
-              <input {...props} value={input}></input>
+            <label>
+              {"a="->Solid.string}
+              <input {...props} value={input->Nullable.getOr("")}></input>
             </label>
             {errors->errorsList}
           </div>}
-      </Formisch.field>
+      </Formisch.string>
 
-      <Formisch.field of_={form} path=["b"]>
+      <Formisch.int of_={form} path=["b"]>
         {({errors, props, input}) =>
           <div>
-            <label>{"b="->Solid.string}
-              <input {...props} type_="number" value={input}></input>
+            <label>
+              {"b="->Solid.string}
+              <input
+                {...props}
+                type_="number"
+                value={switch input {
+                | Value(num) => num->Int.toString
+                | _ => ""
+                }}
+              >
+              </input>
             </label>
             {errors->errorsList}
           </div>}
-      </Formisch.field>
+      </Formisch.int>
 
-      <button> {"Login"->Solid.string} </button>
+      <button> {"submit"->Solid.string} </button>
     </Formisch.form>
   </p>
 }
