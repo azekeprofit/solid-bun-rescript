@@ -17,8 +17,8 @@ module Hand = {
       x2={x()}
       y2={y()}
       stroke=props.handColor
-      strokeWidth={props.width->Int.toString}
-      strokeLinecap="round"
+      strokeWidthDash={props.width->Int.toString}
+      strokeLinecapDash="round"
     />
   }
 }

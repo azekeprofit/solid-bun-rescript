@@ -53,6 +53,10 @@ module Elements = {
     ...JsxDOM.domProps,
     class?: string,
     classList?: dict<bool>,
+    @as("stroke-width")
+    strokeWidthDash?:string,
+    @as("stroke-linecap")
+    strokeLinecapDash?:string
   }
 
   @module("solid-js/web")
